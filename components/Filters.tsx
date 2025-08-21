@@ -1,6 +1,7 @@
-import { Text, ScrollView, TouchableOpacity } from "react-native";
 import React, { useState } from "react";
 import { router, useLocalSearchParams } from "expo-router";
+import { Text, ScrollView, TouchableOpacity } from "react-native";
+
 import { categories } from "@/constants/data";
 
 const Filters = () => {
@@ -11,24 +12,25 @@ const Filters = () => {
 
   const handleCategoryPress = (category: string) => {
     if (selectedCategory === category) {
-      setSelectedCategory("All");
-      router.setParams({ filter: "All" });
+      setSelectedCategory("");
+      router.setParams({ filter: "" });
       return;
-    } else {
-      setSelectedCategory(category);
-      router.setParams({ filter: category });
     }
+
+    setSelectedCategory(category);
+    router.setParams({ filter: category });
   };
+
   return (
     <ScrollView
-      showsHorizontalScrollIndicator={false}
       horizontal
+      showsHorizontalScrollIndicator={false}
       className="mt-3 mb-2"
     >
       {categories.map((item, index) => (
         <TouchableOpacity
+          onPress={() => handleCategoryPress(item.category)}
           key={index}
-          onPress={() => handleCategoryPress(item.title)}
           className={`flex flex-col items-start mr-4 px-4 py-2 rounded-full ${
             selectedCategory === item.category
               ? "bg-primary-300"
@@ -38,7 +40,7 @@ const Filters = () => {
           <Text
             className={`text-sm ${
               selectedCategory === item.category
-                ? "text-white font-rubik-bold"
+                ? "text-white font-rubik-bold mt-0.5"
                 : "text-black-300 font-rubik"
             }`}
           >

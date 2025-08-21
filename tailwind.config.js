@@ -12,7 +12,7 @@ module.exports = {
         "rubik-light": ["Rubik-Light", "sans-serif"],
         "rubik-extrabold": ["Rubik-ExtraBold", "sans-serif"],
       },
-      ccolors: {
+      colors: {
         primary: {
           100: "#0061FF0A",
           200: "#0061FF1A",

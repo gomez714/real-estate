@@ -57,7 +57,7 @@ const TabsLayout = () => {
       />
 
       <Tabs.Screen
-        name="index"
+        name="explore"
         options={{
           title: "Explore",
           headerShown: false,
@@ -68,7 +68,7 @@ const TabsLayout = () => {
       />
 
       <Tabs.Screen
-        name="index"
+        name="profile"
         options={{
           title: "Profile",
           headerShown: false,
